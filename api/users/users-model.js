@@ -6,14 +6,11 @@ function find() {
 return db('users').select('user_id', 'username')
 }
 
-/**
-  resolves to an ARRAY with all users that match the filter condition
- */
+
 function findBy(filter) {
   return db('users')
-  .select('user_id', 'username')
-  .where(filter)
-
+    .select('user_id', 'username', 'password') // Include password in the select statement
+    .where(filter);
 }
 
 /**
